@@ -1,0 +1,9 @@
+class teste{
+   oi(){
+
+  }
+
+  outro(){
+    
+  }
+}
