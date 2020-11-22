@@ -3,10 +3,10 @@ function clickAction(){
   var idade = idadeinput.value;
     function checaIdade(){
       return new Promise((resolve, reject)=>{
-        if(idade > 18){
+        if(idade >= 18){
           resolve('Maior do que 18 anos! 😎');
         }else{
-          reject('Menor do que 18! 🙁')
+          reject('Menor do que 18! 🙁');
         }
       })
     }
