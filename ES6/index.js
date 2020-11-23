@@ -11,3 +11,15 @@ console.log(filterNumbers);
 
 const findNumbers = numbers.find(item => item === 2);
 console.log(findNumbers);
+
+// REST OPERATOR
+const usuario = {
+  nome: "jefferson",
+  idade: "26",
+  endereco: {
+    rua : "joao teixeira",
+    numero : " 132"
+  }
+}
+const {nome, ... resto} = usuario;
+console.log(nome, resto);
