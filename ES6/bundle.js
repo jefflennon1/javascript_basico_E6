@@ -35,3 +35,20 @@ var nome = usuario.nome,
     resto = _objectWithoutProperties(usuario, ["nome"]);
 
 console.log(nome, resto);
+
+function soma() {
+  for (var _len = arguments.length, params = new Array(_len), _key = 0; _key < _len; _key++) {
+    params[_key] = arguments[_key];
+  }
+
+  return params.reduce(function (total, next) {
+    return total + next;
+  });
+}
+
+console.log(soma(3, 4, 7, 7)); // spread 
+
+var arr1 = [1, 2, 3, 4, 5];
+var arr2 = [6, 1, 5, 8];
+var arr3 = [].concat(arr1, arr2);
+console.log(arr3);
