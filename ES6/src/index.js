@@ -13,6 +13,18 @@ class App{
        this.formEl.onsubmit = event => this.addRepository(event);
     }
 
+    setLoading(loading = true){
+      if(loading == true){
+        const loadingEl = document.createElement('span');
+          loadingEl.setAttribute('id', 'loading');
+          loadingEl.appendChild(document.createTextNode('Carregando...'));
+          this.formEl.appendChild(loadingEl);
+      }else{
+        document.getElementById('loading').remove();
+      }
+    }
+
+
   async  addRepository(event){
       event.preventDefault();
         const repoInputEl = this.inpuEl.value;
@@ -20,7 +32,9 @@ class App{
       if(repoInputEl.length === 0)
       return;
 
-      const response = await api.get(`/${repoInputEl}`);
+      this.setLoading();
+
+     try{ const response = await api.get(`/${repoInputEl}`);
 
       const { name, bio, avatar_url, url } = response.data;
       
@@ -31,7 +45,11 @@ class App{
           html_url: url
         });
       
-      this.render();  
+      this.render(); 
+     }catch(error){
+       alert('O usuário nao existe!');
+     }
+     this.setLoading(false);
     }
 
     render(){
@@ -61,6 +79,7 @@ class App{
           this.listEl.appendChild(listNewEl);
       });
     }
+
 }
 
 new App();
