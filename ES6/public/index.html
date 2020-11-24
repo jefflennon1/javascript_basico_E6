@@ -4,15 +4,55 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    body {
-      background-color: black;
-    }
+   ul{
+     list-style: none;
+     margin: 0;
+     padding: 0;
+     font-family: sans-serif;
+   }
+   body{
+    background-color: #131313;
+    color: aqua;
+   
+   }
+   li{
+     clear:both;
+     margin-top: 20px;
+   }
+   img{
+     width: 80px;
+     float: left;
+     margin-right: 10px;
+   }
+   strong{
+     font-size: 20px;
+   }
+   p{
+     margin: 5px  ;
+   }
   </style>
   <title>Document</title>
 </head>
 <body>
-  <button type="button" onclick="addNewTodo()">onlcick!</button>
+  <form id=repo-form>
+    <input type="text" name="repository" id="repository">
+    <button type="submit">Adicionar</button>
+  </form>
 
+  <ul id="repo-list">
+    <li>
+      <img src="https://avatars0.githubusercontent.com/u/28929274?s=200&v=4"></img:src>
+      <strong>rocketseat.com.br</strong>
+      <p>Tire a sua idéia do papel e dê vida a sua startup</p>
+      <a  target="_blank" href="http://github.com/rocketseat">Acessar</a>
+    </li>
+    <li>
+      <img src="https://avatars0.githubusercontent.com/u/28929274?s=200&v=4"></img:src>
+      <strong>rocketseat.com.br</strong>
+      <p>Tire a sua idéia do papel e dê vida a sua startup</p>
+      <a  target="_blank" href="http://github.com/rocketseat">Acessar</a>
+    </li>
+  </ul>
   <script src="./bundle.js"></script>
 </body>
 </html>

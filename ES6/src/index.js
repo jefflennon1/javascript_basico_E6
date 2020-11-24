@@ -1,31 +1,24 @@
-// const MinhaPromise = ()=> new Promise((resolve, reject)=>{
-//    setTimeout(()=>{resolve('ok')}, 2000);
-// })
-// // MinhaPromise().then((response)=>{
-// //   console.log(response);
-// // }).catch((error)=>{
-// //   console.log(error);
-// // })
+class App{
+    constructor(){
+      this.repositories = [];
+      this.formEl = document.getElementById('repo-form');
 
-// async function executaPromisse(){
-//   console.log( await MinhaPromise());
-//   console.log( await MinhaPromise());
-//   console.log( await MinhaPromise());
-// }
-// executaPromisse();
+      this.registerHandles();
+    }
+    registerHandles(){
+      this.formEl.onsubmit = event => this.addrepository(event);
+    }
+    addrepository(event){
+      event.preventDefault();
 
-import axios from 'axios';
-
-class Api{
-  static async getUserInfo(username){
-     try{
-          const response = await axios.get(`https://api.github.com/users/${username}`);
-         console.log(response)
-      } catch (err){
-          console.warn('User not found!');
-      }
-  }
+      this.repositories.push({
+        name: 'jefflennon1',
+        description: 'Qualquercoisaa',
+        avatar_url: 'https://avatars2.githubusercontent.com/u/53300744?v=4',
+        html_url:'https://github.com/jefflennon1',
+      });
+      console.log(this.repositories);
+    }
 }
 
-Api.getUserInfo('jefflennon15454545');
-
+new App();
