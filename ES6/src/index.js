@@ -1,20 +1,34 @@
+import api from './api';
+
+
 class App{
   constructor(){
     this.repositories = [];
     this.formEl = document.getElementById('repo-form');
+    this.inpuEl = document.querySelector('input[name=repository]');
     this.listEl = document.getElementById('repo-list');
     this.registerHandles();
   }
   registerHandles(){
        this.formEl.onsubmit = event => this.addRepository(event);
     }
-    addRepository(event){
+
+  async  addRepository(event){
       event.preventDefault();
+        const repoInputEl = this.inpuEl.value;
+
+      if(repoInputEl.length === 0)
+      return;
+
+      const response = await api.get(`/${repoInputEl}`);
+
+      const { name, bio, avatar_url, url } = response.data;
+      
         this.repositories.push({
-          name: 'jefflennon1',
-          description: 'qualquer coisa',
-          avatar_url: 'https://avatars2.githubusercontent.com/u/53300744?v=4',
-          html_url: 'https://api.github.com/users/jefflennon1'
+          name,
+          description: bio,
+          avatar_url,
+          html_url: url
         });
       
       this.render();  
@@ -50,6 +64,3 @@ class App{
 }
 
 new App();
-
-
-
